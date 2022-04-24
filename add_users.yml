@@ -3,7 +3,7 @@
   become: true
   hosts: all
   vars_files:
-    - add_users.yml
+    - users.yml
   tasks:
     - debug:
         msg: "{{ lookup('password','/tmp/'+item.key+'.file length=10'}}"
