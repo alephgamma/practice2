@@ -11,5 +11,5 @@
     - name: get from webserver
       user: 
         name: "{{ item.key }}"
-        comment: "{{ item.value.f }}"
+        comment: "{{ item.value.f }} {{ item.value.m }} {{ item.value.l }}"
       with_dict: "{{ users }}"
