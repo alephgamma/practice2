@@ -1,7 +1,7 @@
 ---
 - name: add user
   become: true
-  hosts: ll
+  hosts: all
   vars_files:
     - add_users.yml
   tasks:
