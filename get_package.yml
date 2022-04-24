@@ -3,7 +3,7 @@
   become: true
   hosts: databases
   vars_files:
-    integrity.yml
+    - integrity.yml
   tasks:
     - name: get from webserver
       get_url: 
