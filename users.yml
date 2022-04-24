@@ -1,0 +1,18 @@
+---
+users:
+  bill: 
+    f: will
+    m: nmi
+    l: degroin
+  joe:
+    f: yusuf
+    m: f
+    l: abdool
+  jim:
+    f: James
+    m: k
+    l: seamus
+  bob:
+    f: bobert
+    m: q
+    l: roberts

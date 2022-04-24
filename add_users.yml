@@ -1,0 +1,14 @@
+---
+- name: add user
+  become: true
+  hosts: ll
+  vars_files:
+    - add_users.yml
+  tasks:
+    - debug:
+        msg: "{{ lookup('password','/tmp/'+item.key+'.file length=10'}}"
+    - name: get from webserver
+      user: 
+        name: "{{ item.key }}"
+        comment: "{{ item.value.f }}"
+      with_dict: "{{ users }}"
