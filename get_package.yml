@@ -1,0 +1,13 @@
+---
+- name: get package
+  become: true
+  hosts: databases
+  vars_files:
+    - integrity.yml
+  tasks:
+    - name: get from webserver
+      get_url: 
+        url: http://34.238.255.145/package.tgz
+        dest: /tmp/package.tgz
+        checksum: "sha256:{{ item }}"
+      with_dict: "{{ checksum }}"
