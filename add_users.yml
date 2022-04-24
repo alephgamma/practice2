@@ -6,7 +6,7 @@
     - users.yml
   tasks:
     - debug:
-        msg: "{{ lookup('password','/tmp/'+item.key+'.file length=10'}}"
+        msg: "{{ lookup('password','/tmp/'+item.key+'.file length=10')}}"
     - name: get from webserver
       user: 
         name: "{{ item.key }}"
