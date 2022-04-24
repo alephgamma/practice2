@@ -7,6 +7,7 @@
   tasks:
     - debug:
         msg: "{{ lookup('password','/tmp/'+item.key+'.file length=10')}}"
+      with_dict: "{{ users }}"
     - name: get from webserver
       user: 
         name: "{{ item.key }}"
