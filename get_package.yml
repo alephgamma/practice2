@@ -9,5 +9,5 @@
       get_url: 
         url: http://34.238.255.145/package.tgz
         dest: /tmp/package.tgz
-        checksum: "sha256:{{ item }}"
+        checksum: "sha256:{{ item.value }}"
       with_dict: "{{ checksum }}"
