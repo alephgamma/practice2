@@ -7,7 +7,7 @@
   tasks:
     - name: get from webserver
       get_url: 
-        url: http://34.238.255.145/package.tgz
+        url: http://54.84.117.17/package.tgz
         dest: /tmp/package.tgz
         validate_certs: no
         checksum: "sha256:{{ item }}"
