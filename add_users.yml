@@ -5,11 +5,13 @@
   vars_files:
     - users.yml
   tasks:
-    - debug:
+    - name: create file
+      debug:
         msg: "{{ lookup('password','/tmp/'+item.key+'.file length=10')}}"
       with_dict: "{{ users }}"
-    - name: get from webserver
+    - name: create user
       user: 
         name: "{{ item.key }}"
-        comment: "{{ item.value.f }} {{ item.value.m }} {{ item.value.l }}"
+        comment: "{{ item.value.f | title }} {{ item.value.m[0] | title }} {{ item.value.l | title }}"
+        password: " {{ lookup('file','/tmp/'+item.key+'.file ) | password_hash('sha256')}}
       with_dict: "{{ users }}"
