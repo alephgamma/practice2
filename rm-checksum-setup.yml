@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+  become: true
+  tasks:
+    - name: stop httpd
+      systemd:
+        name: httpd
+        state: stopped
+    - name: uninstall http 
+      yum:
+        name: httpd
+        state: absent
