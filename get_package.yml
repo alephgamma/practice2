@@ -2,12 +2,14 @@
 - name: get package
   become: true
   hosts: databases
+  vars:
+    web: 54.210.81.205
   vars_files:
     - integrity.yml
   tasks:
     - name: get from webserver
       get_url: 
-        url: http://54.84.117.17/package.tgz
+        url: "http://{{ web }}/package.tgz"
         dest: /tmp/package.tgz
         validate_certs: no
         checksum: "sha256:{{ item }}"
