@@ -1,0 +1,25 @@
+---
+- name: cgroups
+  become: true
+  hosts: all
+  vars:
+    l:
+      [ 1, 2, 3 ]
+    packages:
+      - daemonize
+      - stress
+  tasks:
+    - yum:
+        name: "{{ packages }}"
+        state: latest
+    - template:
+        src: ../templates/stress.service.j2
+        dest: /etc/systemd/system/stress{{ item }}.service
+      loop:
+        "{{ l }}"
+    - systemd:
+        name: stress{{ item }}.service
+        state: stopped
+        enabled: no
+      loop:
+        "{{ l }}"

@@ -1,0 +1,11 @@
+[Unit]
+Description=Stress test server{{ item }}
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/daemonize -c /tmp -p /tmp/stressing{{ item }}.pid /usr/bin/stress -c 2
+PIDFile=/tmp/stressing{{ item }}.pid
+
+[Install]
+WantedBy=multi-user.target
+
